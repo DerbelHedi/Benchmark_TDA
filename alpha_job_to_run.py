@@ -1,26 +1,7 @@
-from DatasetGeneration import generate_data_clouds
-from ML_pipeline_third_test import ML_pipeline
-from quantile_filtration import quantile
-import itertools
-import gudhi as gd
+
 from build_complex import build_complex
-from run_complex import run_complex
 from compute_persistence import compute_persistence
 from measure_time_memory import measure_time_memory
-import matplotlib.pyplot as plt
-import numpy as np
-from compute_vectorisation import compute_vectorisation
-from memory_profiler import profile
-from sklearn.preprocessing   import MinMaxScaler
-from sklearn.pipeline        import Pipeline
-from sklearn.svm             import SVC
-from sklearn.ensemble        import RandomForestClassifier
-from sklearn.neighbors       import KNeighborsClassifier
-from launch_benchmark import launch_benchmark
-import random
-import time
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
 
 
 # In addition to the construction of simplex trees out of a point cloud, it returns the diagram and add the time  and memory consumed  

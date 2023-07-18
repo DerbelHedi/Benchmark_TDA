@@ -1,6 +1,5 @@
 import gudhi
-'''from memory_profiler import profile
-@profile'''
+
 
 def compute_persistence(ST):
     

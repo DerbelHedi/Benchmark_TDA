@@ -1,7 +1,6 @@
 import gudhi as gd
 import gudhi.representations
-'''from memory_profiler import profile
-@profile'''
+
 def compute_vectorisation(dgm,representation) :
 
         if representation=="Landscape":

@@ -1,9 +1,7 @@
 from build_alpha import complex_alpha
 from build_rips import complex_rips
-# from build_ripser import complex_ripser
 from build_edge import complex_edge
-'''from memory_profiler import profile
-@profile'''
+
 
 def build_complex( points,complex_type, **kwargs):
     if complex_type == "alpha":
