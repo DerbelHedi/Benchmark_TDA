@@ -1,4 +1,3 @@
-from ML_pipeline import ML_pipeline
 
 # Fit the model to the diagrams and test the accuracy
 def launch_benchmark(model,train_dgms,test_dgms,train_labs,test_labs):

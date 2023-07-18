@@ -9,7 +9,6 @@ np.random.seed(62445)
 
 def generate_data_clouds(points_for_cloud,num_diag_per_class,r_values):  # generating a list of data clouds (var points), with it's corresponding list of 10 percentiles
     
-    
     labels = []
     points=[]
     

@@ -1,26 +1,10 @@
 from DatasetGeneration import generate_data_clouds
 from ML_pipeline_third_test import ML_pipeline
-from quantile_filtration import quantile
 import itertools
-import gudhi as gd
-from build_complex import build_complex
-from run_complex import run_complex
-from compute_persistence import compute_persistence
-from measure_time_memory import measure_time_memory
-import matplotlib.pyplot as plt
-import numpy as np
-from compute_vectorisation import compute_vectorisation
-from memory_profiler import profile
-from sklearn.preprocessing   import MinMaxScaler
-from sklearn.pipeline        import Pipeline
-from sklearn.svm             import SVC
-from sklearn.ensemble        import RandomForestClassifier
-from sklearn.neighbors       import KNeighborsClassifier
-from launch_benchmark import launch_benchmark
-import random
 import time
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
+from measure_time_memory import measure_time_memory
+import numpy as np
+from launch_benchmark import launch_benchmark
 from alpha_job_to_run import run_the_process
 import pandas as pd 
 
@@ -76,11 +60,11 @@ def script_final(complex_alpha_params):
         whole_time.append(elapsed_time)
         whole_memory.append(elapsed_memory)
         result_dict = {
-            'complex_alpha_parameters': complex_alpha_parameters,
+            'complex_parameters': complex_alpha_parameters,
             'elapsed_time': round(elapsed_time,3),
             'elapsed_memory': round(elapsed_memory,3),
             'test_accuracy': test_accuracy,
-            'best_par': best_par
+            'best parameters for the complex': best_par
         }
 
         results_list.append(result_dict)

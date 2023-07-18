@@ -7,7 +7,9 @@ from sklearn.svm             import SVC
 from sklearn.ensemble        import RandomForestClassifier
 from sklearn.neighbors       import KNeighborsClassifier
 from sklearn.model_selection import GridSearchCV
-
+from gudhi.representations import PersistenceImage
+from gudhi.representations import BottleneckDistance
+from gudhi.representations import Landscape
 import gudhi as gd
 
 
