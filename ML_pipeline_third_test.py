@@ -42,8 +42,12 @@ def ML_pipeline(dgms,labels):
                 "TDA__resolution":     [ [5,5], [6,6] ],
                 "TDA__bandwidth":      [0.01, 0.1, 1.0, 10.0],
                 "Estimator":           [RandomForestClassifier()]},
+                {"Scaler__use":         [False],
+                "TDA":                 [gd.representations.BottleneckDistance()], 
+                "TDA__epsilon":        [0.1], 
+                "Estimator":           [RandomForestClassifier()]}
             ]
 
-    model = GridSearchCV(pipe, param, cv=3, error_score='raise')    
+    model = GridSearchCV(pipe, param, cv=4, error_score='raise')    
     
     return model,train_dgms,test_dgms,train_labs,test_labs

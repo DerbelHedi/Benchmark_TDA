@@ -2,7 +2,7 @@ from scipy.spatial import distance_matrix
 import numpy as np
 
 
-def quantile(points) :
+def quantile(points) :  # returns an array of the 10 percentiles of the pairwise distance between points in the datacloud
     
 
             pairwise_distances = distance_matrix(points, points)
@@ -12,9 +12,6 @@ def quantile(points) :
             percentiles = np.arange(10, 100, 10)
             max_edge_lengths = np.percentile(dis, percentiles)
 
-            # Print the calculated quantiles
-            for p, q in zip(percentiles, max_edge_lengths):
-                print(f"{p}th Percentile: {q}")
             return     max_edge_lengths
     
     

@@ -1,11 +1,13 @@
 import numpy as np
 import pandas as pd
 import random 
+from quantile_filtration import quantile
 
-random.seed(62445)
+random.seed(62445)  # we fix the seed in order to eliminate randomness
 np.random.seed(62445)
 
-def generate_data_clouds(points_for_cloud,num_diag_per_class,r_values):
+
+def generate_data_clouds(points_for_cloud,num_diag_per_class,r_values):  # generating a list of data clouds (var points), with it's corresponding list of 10 percentiles
     
     
     labels = []
@@ -25,9 +27,13 @@ def generate_data_clouds(points_for_cloud,num_diag_per_class,r_values):
                 
             points.append(X)
             labels.append([str(r)])
+    
+    thresh = [quantile(element) for element in points]
+    thresh_array = np.array(thresh)
+    quantiles= np.mean(thresh_array, axis=0)        
 
             
-    return (points,labels)        
+    return (points,labels,quantiles)        
             
 
 

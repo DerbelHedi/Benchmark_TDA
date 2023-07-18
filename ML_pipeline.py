@@ -30,23 +30,23 @@ def ML_pipeline(dgms,labels):
                     ("Estimator", SVC())])
 
     # Parameters of pipeline. This is the place where you specify the methods you want to use to handle diagrams
-    param =    [#{"Scaler__use":         [False],
-               # "TDA":                 [gd.representations.SlicedWassersteinKernel()], 
-               # "TDA__bandwidth":      [0.1, 1.0],
-               # "TDA__num_directions": [20],
-               # "Estimator":           [SVC(kernel="precomputed", gamma="auto")]},
+    param =    [{"Scaler__use":         [False],
+                "TDA":                 [gd.representations.SlicedWassersteinKernel()], 
+                "TDA__bandwidth":      [0.1, 1.0],
+                "TDA__num_directions": [20],
+                "Estimator":           [SVC(kernel="precomputed", gamma="auto")]},
                 
-               # {"Scaler__use":         [False],
-               # "TDA":                 [gd.representations.PersistenceWeightedGaussianKernel()], 
-               # "TDA__bandwidth":      [0.1, 0.01],
-               # "TDA__weight":         [lambda x: np.arctan(x[1]-x[0])], 
-               # "Estimator":           [SVC(kernel="precomputed", gamma="auto")]},
+                {"Scaler__use":         [False],
+                "TDA":                 [gd.representations.PersistenceWeightedGaussianKernel()], 
+                "TDA__bandwidth":      [0.1, 0.01],
+                "TDA__weight":         [lambda x: np.arctan(x[1]-x[0])], 
+                "Estimator":           [SVC(kernel="precomputed", gamma="auto")]},
                 
-               # {"Scaler__use":         [True],
-               # "TDA":                 [gd.representations.PersistenceImage()], 
-               # "TDA__resolution":     [ [5,5], [6,6] ],
-               # "TDA__bandwidth":      [0.01, 0.1, 1.0, 10.0],
-               # "Estimator":           [SVC()]},
+                {"Scaler__use":         [True],
+                "TDA":                 [gd.representations.PersistenceImage()], 
+                "TDA__resolution":     [ [5,5], [6,6] ],
+                "TDA__bandwidth":      [0.01, 0.1, 1.0, 10.0],
+                "Estimator":           [SVC()]},
                 
                 {"Scaler__use":         [True],
                 "TDA":                 [gd.representations.Landscape()], 
