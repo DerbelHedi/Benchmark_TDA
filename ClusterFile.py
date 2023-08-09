@@ -4,8 +4,8 @@ import itertools
 import time
 from measure_time_memory import measure_time_memory
 import numpy as np
-from launch_benchmark import launch_benchmark
-from alpha_job_to_run import run_the_process
+from fit_model import launch_benchmark
+from persistence_time_and_memory import run_the_process
 import pandas as pd 
 from time_usage import measure_time
 
