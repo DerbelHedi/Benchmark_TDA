@@ -5,6 +5,7 @@ from measure_time_memory import measure_time_memory
 import gudhi
 from time_usage import measure_time
 import numpy as np
+import gudhi as gd
 
 # In addition to the construction of simplex trees out of a point cloud, it returns the diagram and add the time  and memory consumed  
 

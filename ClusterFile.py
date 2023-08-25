@@ -1,13 +1,16 @@
 from DatasetGeneration import generate_data_clouds
-from ML_pipeline_5_test import ML_pipeline
+from ML_pipeline_forth_test import ML_pipeline
 import itertools
 import time
 from measure_time_memory import measure_time_memory
 import numpy as np
-from launch_benchmark import launch_benchmark
-from alpha_job_to_run import run_the_process
+from fit_model import launch_benchmark
+from persistence_time_and_memory import run_the_process
 import pandas as pd 
 from time_usage import measure_time
+import random
+import gudhi as gd
+
 
 """points_for_cloud=800
 num_diag_per_class=15
@@ -31,8 +34,7 @@ def script_final(points,labels,complex_alpha_params):
         dgms = [run_the_process(X,i,complex_alpha_parameters,timing,memory,1) for i,X in enumerate(points)]
         dgm_time,dgm_memory=np.sum(timing), np.sum(memory)
         print("Time used for diagrams computation and persistence: ", np.sum(timing),"seconds")    
-        print("Memory used for diagrams computation and persistence: {:.2f} MB".format(np.sum(memory)))
-        
+        print("Memory used for diagrams computation and persistence: {:.2f} MB".format(np.sum(memory)))        
         #Step 2, define the pipeline 
         results_pipeline,pipeline_time,pipeline_memory=measure_time_memory(ML_pipeline,dgms,labels )
         model,train_dgms,test_dgms,train_labs,test_labs=results_pipeline
@@ -89,13 +91,13 @@ def script_final(points,labels,complex_alpha_params):
     df_results = pd.DataFrame(results_list)
     complex_type = best_complex_parameters['complex_type']
 
-# Define the filename for the CSV file
-    csv_filename = f"results2{complex_type}_384.csv"
+
+    csv_filename = "ResultsToColect_" + complex_type + "_99846_966969.csv"
+
+    
 
     df_results.to_csv(csv_filename, index=False)
-
-    
-    
+   
     
     return df_results
     
