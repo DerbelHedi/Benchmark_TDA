@@ -11,12 +11,16 @@ from gudhi.representations import PersistenceImage
 from gudhi.representations import BottleneckDistance
 from gudhi.representations import Landscape
 import gudhi as gd
-
+from sklearn.model_selection import StratifiedKFold
+import numpy as np 
+import random
 
 
 def ML_pipeline(dgms,labels):
     
-    
+    random.seed(966969)  
+    np.random.seed(966969)
+
     test_size            = 0.2
     perm                 = np.random.permutation(len(labels))
     limit                = int(test_size * len(labels))
@@ -31,12 +35,12 @@ def ML_pipeline(dgms,labels):
                     ("TDA",       gd.representations.PersistenceImage()),
                     ("Estimator", RandomForestClassifier())])
 
-    # Parameters of pipeline. This is the place where you specify the methods you want to use to handle diagrams
+    # Parameters of pipeline. This is the place where you specify the methods you want to use to hrrandle diagrams
     param =    [
                                 
                 {"Scaler__use":         [True],
                 "TDA":                 [gd.representations.Landscape()], 
-                "TDA__resolution":     [100],
+                "TDA__resolution":     [100,200,300,400,500],
                 "Estimator":           [RandomForestClassifier()],
                 "Estimator": [RandomForestClassifier()],
                "Estimator__n_estimators": [50, 100, 200],
@@ -55,6 +59,7 @@ def ML_pipeline(dgms,labels):
                 "Estimator__min_samples_leaf": [1, 2, 4]},
             ]
 
-    model = GridSearchCV(pipe, param, cv=4, error_score='raise')    
+    model = GridSearchCV(pipe, param, cv=3, error_score='raise')    
+    
     
     return model,train_dgms,test_dgms,train_labs,test_labs
